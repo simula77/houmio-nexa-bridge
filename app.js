@@ -23,15 +23,21 @@ ws.on('open', function() {
 });
 
 ws.on('message', function(msg) {
+  logger.debug('received message %s', msg);
   message = JSON.parse(msg);
-  logger.debug('received message %s', message);
+  if (message.command === 'set') {
+    handleSetCommand(message);
+  }
+});
+
+function handleSetCommand(message) {
   var deviceId = parseInt(message.data.groupaddress);
   if (message.data.value == 1) {
     telldus.turnOnSync(deviceId);
   } else {
     telldus.turnOffSync(deviceId);
   }
-});
+};
 
 ws.on('ping', function(ping) {
   logger.debug('ping received');
