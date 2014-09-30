@@ -1,0 +1,5 @@
+{
+	"logLevel": "debug",
+	"serverAddress": "wss://houm.herokuapp.com",
+	"siteKey": "insert_site_key_here"
+}

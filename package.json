@@ -1,0 +1,17 @@
+{
+  "name": "houmio-nexa-bridge",
+  "version": "0.0.1",
+  "author": "Samuli Karjula",
+  "main": "app.js",
+  "dependencies": {
+    "telldus": "0.0.9",
+    "ws": "0.4.32",
+    "winston": "0.8.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
