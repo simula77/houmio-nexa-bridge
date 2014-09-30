@@ -40,10 +40,10 @@ ws.on('ping', function(ping) {
 
 ws.on('error', function(error) {
   logger.info('Error received: %s -> exiting', error);
-  process.kill();
+  process.exit(1);
 });
 
 ws.on('close', function() {
   logger.info('Connection closed -> exiting');
-  process.kill();
+  process.exit(1);
 });
