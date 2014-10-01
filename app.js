@@ -37,7 +37,7 @@ function handleSetCommand(message) {
 
 var deviceEventListener = telldus.addDeviceEventListener(function(deviceId, status) {
   logger.debug('received event for device ' + deviceId + ' status: ' + status.name);
-  var message = JSON.stringify({ command: "knxbusdata", data: deviceId + " " + (status === 'ON' ? 0 : 1) });
+  var message = JSON.stringify({ command: "knxbusdata", data: deviceId + " " + (status.name === 'ON' ? 1 : 0) });
   ws.send(message);
   logger.debug('sent knxbusdata', message);
 });
