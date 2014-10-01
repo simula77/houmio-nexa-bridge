@@ -1,7 +1,7 @@
 houmio-nexa-bridge
 ==================
 
-Node.js application that translates messages from [h/oum.io](http://houm.io) user interface to commands for Nexa compatible electronics. A TellStick is required to communicate with Nexa hardware.
+Node.js application that translates messages from [Houm.io](http://houm.io) user interface to commands for Nexa compatible electronics. A TellStick is required to communicate with Nexa hardware.
 
 ##### Device ids in /etc/tellstick.conf must match the switch group address entered through houm.io UI.
 
