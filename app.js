@@ -3,7 +3,7 @@ var fs = require('fs');
 var winston = require('winston');
 var conf = JSON.parse(fs.readFileSync('./config.json'));
 var WebSocket = require('ws');
-var ws = return new WebSocket(conf.serverAddress);
+var ws = new WebSocket(conf.serverAddress);
 var logger = new (winston.Logger)({
     transports: [
       new (winston.transports.Console)(),
