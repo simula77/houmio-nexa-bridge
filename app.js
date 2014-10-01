@@ -15,7 +15,7 @@ ws.on('open', function() {
   logger.info('Connected to ' + conf.serverAddress);
   publish = JSON.stringify({ command: "publish", data: { sitekey: conf.siteKey, vendor: "knx" } });
   ws.send(publish);
-  logger.debug('sent publish %s', publish);
+  logger.debug('sent publish', publish);
 });
 
 ws.on('message', function(msg) {
@@ -34,6 +34,13 @@ function handleSetCommand(message) {
     telldus.turnOffSync(deviceId);
   }
 };
+
+var deviceEventListener = telldus.addDeviceEventListener(function(deviceId, status) {
+  logger.debug('received event for device ' + deviceId + ' status: ' + status.name);
+  var message = JSON.stringify({ command: "knxbusdata", data: deviceId + " " + (status === 'ON' ? 0 : 1) });
+  ws.send(message);
+  logger.debug('sent knxbusdata', message);
+});
 
 ws.on('ping', function(ping) {
   logger.debug('ping received');
