@@ -14,5 +14,9 @@ Node.js application that translates messages from [Houm.io](http://houm.io) user
 * a Computer such as a Raspberry Pi that runs node.js and the TellStick software. 
 
 #### Running on a Raspberry Pi
-* [Installing Telldus software on a Raspberry Pi](http://elinux.org/R-Pi_Tellstick_core)
-* [Installing Node.js on a Raspberry Pi](https://learn.adafruit.com/raspberry-pi-hosting-node-red/setting-up-node-dot-js)
+* [Install Node.js on your Raspberry Pi](https://learn.adafruit.com/raspberry-pi-hosting-node-red/setting-up-node-dot-js)
+* [Install Telldus software on your Raspberry Pi](http://elinux.org/R-Pi_Tellstick_core)
+* [Configure your Nexa hardware in /etc/tellstick.conf](http://developer.telldus.com/wiki/TellStick_conf)
+* Clone this repo
+* Rename config.json.example -> config.json and enter your site key
+* Run app
