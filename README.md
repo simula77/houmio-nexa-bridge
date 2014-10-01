@@ -7,7 +7,7 @@ Node.js application that translates messages from [Houm.io](http://houm.io) user
 
 ##### Only on/off sockets are currently supported.
 
-### Requirement
+#### Requirements
 * TellStick from [Telldus](http://www.telldus.se/products/tellstick)
 * houm.io siteKey from http://houm.io
 * Nexa or compatible home automation electronics
