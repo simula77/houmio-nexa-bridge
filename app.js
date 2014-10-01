@@ -1,19 +1,15 @@
-var WebSocket = require('ws');
 var telldus = require('telldus');
 var fs = require('fs');
 var winston = require('winston');
 var conf = JSON.parse(fs.readFileSync('./config.json'));
+var WebSocket = require('ws');
+var ws = return new WebSocket(conf.serverAddress);
 var logger = new (winston.Logger)({
     transports: [
       new (winston.transports.Console)(),
       new (winston.transports.File)({ filename: 'logs/nexa-bridge.log', level: conf.logLevel })
     ]
   });
-
-var connectWebSocket = function() {
-  return new WebSocket(conf.serverAddress);
-};
-var ws = connectWebSocket();
 
 ws.on('open', function() {
   logger.info('Connected to ' + conf.serverAddress);
