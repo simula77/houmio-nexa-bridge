@@ -9,6 +9,6 @@ Node.js application that translates messages from [Houm.io](http://houm.io) user
 
 #### Requirements
 * TellStick from [Telldus](http://www.telldus.se/products/tellstick)
-* houm.io siteKey from http://houm.io
+* A Houm.io siteKey from http://houm.io
 * Nexa or compatible home automation electronics
 * computer such as a RaspberryPi that runs node.js and the TellStick software
