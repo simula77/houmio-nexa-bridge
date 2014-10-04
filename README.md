@@ -9,7 +9,7 @@ Node.js application that translates messages from [Houm.io](http://houm.io) user
 * A [TellStick](http://www.telldus.se/products/tellstick) or a [TellStick Duo](http://www.telldus.se/products/tellstick_duo)
 * A Houm.io siteKey from http://houm.io
 * Nexa or compatible home automation electronics
-* a Computer such as a Raspberry Pi that runs node.js and the TellStick software. 
+* A Computer such as a Raspberry Pi that runs node.js and the TellStick software. 
 
 #### Running on a Raspberry Pi
 * [Install Node.js on your Raspberry Pi](https://learn.adafruit.com/raspberry-pi-hosting-node-red/setting-up-node-dot-js)
