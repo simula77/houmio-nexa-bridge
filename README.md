@@ -5,10 +5,8 @@ Node.js application that translates messages from [Houm.io](http://houm.io) user
 
 ##### Device ids in /etc/tellstick.conf must match the switch group address entered through houm.io UI.
 
-##### Only on/off sockets are currently supported.
-
 #### Requirements
-* TellStick from [Telldus](http://www.telldus.se/products/tellstick)
+* A [TellStick](http://www.telldus.se/products/tellstick) or a [TellStick Duo](http://www.telldus.se/products/tellstick_duo)
 * A Houm.io siteKey from http://houm.io
 * Nexa or compatible home automation electronics
 * a Computer such as a Raspberry Pi that runs node.js and the TellStick software. 
@@ -19,4 +17,4 @@ Node.js application that translates messages from [Houm.io](http://houm.io) user
 * [Configure your Nexa hardware in /etc/tellstick.conf](http://developer.telldus.com/wiki/TellStick_conf)
 * Clone this repo
 * Rename config.json.example -> config.json and enter your site key
-* Run app
+* Run app with [forever](https://github.com/nodejitsu/forever) 
