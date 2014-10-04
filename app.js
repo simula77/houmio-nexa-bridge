@@ -56,9 +56,12 @@ function handleSetCommand(message) {
 
 var deviceEventListener = telldus.addDeviceEventListener(function(deviceId, status) {
   logger.debug('received event for device ' + deviceId + ' status: ' + status.name);
-  var message = JSON.stringify({ command: "knxbusdata", data: deviceId + " " + (status.name === 'ON' ? 1 : 0) });
-  ws.send(message);
-  logger.debug('sent knxbusdata', message);
+  // TODO support dimmer events
+  if (status.name === 'ON' || status.name === 'OFF') {
+    var message = JSON.stringify({ command: "knxbusdata", data: deviceId + " " + (status.name === 'ON' ? 1 : 0) });
+    ws.send(message);
+    logger.debug('sent knxbusdata', message);
+  }
 });
 
 ws.on('ping', function(ping) {
