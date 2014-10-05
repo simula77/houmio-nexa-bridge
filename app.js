@@ -43,9 +43,8 @@ function isDimmer(deviceId) {
 
 function handleSetCommand(message) {
   var deviceId = parseInt(message.data.groupaddress);
-  var dimmer = isDimmer(deviceId);
-  var value = dimmer ? parseInt(message.data.value, 16) : parseInt(message.data.value);
-  if (dimmer && value > 0 && value < 255) {
+  var value = isDimmer(deviceId) ? parseInt(message.data.value, 16) : parseInt(message.data.value);
+  if (isDimmer(deviceId) && value > 0 && value < 255) {
     telldus.dimSync(deviceId, value);
   } else if (value === 0) {
     telldus.turnOffSync(deviceId);
@@ -55,13 +54,16 @@ function handleSetCommand(message) {
 }
 
 var deviceEventListener = telldus.addDeviceEventListener(function(deviceId, status) {
-  logger.debug('received event for device ' + deviceId + ' status: ' + status.name);
-  // TODO support dimmer events
-  if (status.name === 'ON' || status.name === 'OFF') {
-    var message = JSON.stringify({ command: "knxbusdata", data: deviceId + " " + (status.name === 'ON' ? 1 : 0) });
-    ws.send(message);
-    logger.debug('sent knxbusdata', message);
+  logger.debug('received event for device ' + deviceId + ' status: ', status);
+  val value = '0';
+  if (_.has(status), 'level') {
+    value = status.level.toString(16);
+  } else if (status.name === 'ON') {
+    value = isDimmer(deviceId) 'ff' : '1';
   }
+  var message = JSON.stringify({ command: "knxbusdata", data: deviceId + " " + value });
+  ws.send(message);
+  logger.debug('sent knxbusdata', message);
 });
 
 ws.on('ping', function(ping) {
